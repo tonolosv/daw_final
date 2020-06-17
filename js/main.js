@@ -15,6 +15,7 @@ function validar() {
 }
 
 // Function w/sweetAlert
+//I've combinated to sweetAlert
 
 
 function depositar() {
