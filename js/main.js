@@ -1,3 +1,5 @@
+// Login
+
 function validar() {
     var valor = 1234;
     valor = document.getElementById("pass").value;
@@ -11,6 +13,8 @@ function validar() {
         return false;
     }
 }
+
+// Function w/sweetAlert
 
 
 function depositar() {
