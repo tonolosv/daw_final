@@ -40,38 +40,37 @@ let cajero = {
         this.paintBalance();
         if (isNaN('ingresar_id')) {
             Swal.fire({
-                icon: 'success',
-                title: 'Transaccion Exitosa',
-                text: 'Verifique su saldo'
+                icon: 'warning',
+                title: 'Tramite no realizado',
+                text: 'Intente de nuevo'
             })
-            return;
         }
         Swal.fire({
             icon: 'success',
             title: 'Transacción Exitosa',
-            text: 'Desea realizar otra transacción?',
+            text: 'Desea realizar otra Transacción',
             footer: '<p>Revise su nuevo saldo</p>'
         })
         document.getElementById('ingresar_id').value = '';
     },
-    // pagoRecibos: function() {
-    //     let monto = parseInt(document.getElementById('bill_id').value);
-    //     if (monto <= this.balance) {
-    //         this.balance -= monto;
-    //         this.paintBalance();
-    //         Swal.fire({
-    //             icon: 'success',
-    //             title: 'Transacción Exitosa',
-    //             footer: '<p>Revise su nuevo saldo</p>'
-    //         })
-    //         document.getElementById('bill_id').value = '';
-    //     } else Swal.fire({
-    //         icon: 'warning',
-    //         title: 'Fondos Insufiecientes',
-    //         text: 'Verificar Saldo!'
-    //     })
+    pagoBill: function() {
+        let monto = parseInt(document.getElementById('bill_id').value);
+        if (monto <= this.balance) {
+            this.balance -= monto;
+            this.paintBalance();
+            Swal.fire({
+                icon: 'success',
+                title: 'Transacción Exitosa',
+                footer: '<p>Revise su nuevo saldo</p>'
+            })
 
-    // },
+        } else Swal.fire({
+            icon: 'warning',
+            title: 'Fondos Insufiecientes',
+            text: 'Verificar Saldo!'
+        })
+        document.getElementById('bill_id').value = '';
+    },
     paintBalance: function() {
         let b = this.balance.toFixed(2);
         document.getElementById('balance_id').innerHTML = '$' + b;
