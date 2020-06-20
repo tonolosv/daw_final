@@ -81,8 +81,6 @@ cajero.paintBalance();
 
 
 
-
-
 // Function w/sweetAlert
 //I've combined w/2 sweetAlert
 
